@@ -4,7 +4,7 @@
     "theme_color": "#16a085",
     "background_color": "#ecf0f1",
     "display": "standalone",
-    "start_url": "/fpga-pwa-bluetooth/index.html",
+    "start_url": "/",
     "icons": [
         {
             "src": "images/icons/icon-72x72.png",
