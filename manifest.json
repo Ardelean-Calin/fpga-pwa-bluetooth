@@ -1,11 +1,10 @@
 {
     "name": "Bluetooth Signal Generator",
     "short_name": "Bluewave",
-    "theme_color": "#ecf0f1",
+    "theme_color": "#16a085",
     "background_color": "#ecf0f1",
     "display": "standalone",
-    "Scope": "/",
-    "start_url": "./",
+    "start_url": "index.html",
     "icons": [
         {
             "src": "images/icons/icon-72x72.png",
