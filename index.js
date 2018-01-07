@@ -13,7 +13,7 @@ window.addEventListener("load", async e => {
 let terminal;
 $(document).ready(() => {
     // Global variable to be used by the radio buttons as well
-    let currentDataArray = [0x77, 0, 0, 0, 100, "\n"];
+    let currentDataArray = [0x77, 0, 0, 0x03, 0xe8, "\n"];
 
     $(".modal").modal();
     $("#modal1").modal("open");
