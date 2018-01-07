@@ -57,8 +57,15 @@
     </div>
 
     <div style="position: absolute; bottom: 0; right: 1rem">
-        <p>v2</p>
+        <p>v3</p>
     </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/sw.js')
+                .then(function () { console.log("Service Worker Registered"); });
+        }
+    </script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/materialize.min.js"></script>
     <script src="js/lodash.min.js"></script>

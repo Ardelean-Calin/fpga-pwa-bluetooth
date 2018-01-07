@@ -1,15 +1,5 @@
 const MAC_ADDRESS = "00:15:83:00:85:F6";
 
-window.addEventListener("load", async e => {
-    if ("serviceWorker" in navigator) {
-        try {
-            navigator.serviceWorker.register("sw.js");
-            console.log("SW registered!");
-        } catch (error) {
-            console.log("SW not registered.");
-        }
-    }
-});
 let terminal;
 $(document).ready(() => {
     // Global variable to be used by the radio buttons as well
