@@ -19,20 +19,30 @@ self.addEventListener("install", function(e) {
     console.log("[ServiceWorker] Install");
 });
 
-self.addEventListener("fetch", function(e) {
-    console.log("[ServiceWorker - fetch]", e.request.url);
-
-    e.respondWith(
-        caches.match(e.request).then(function(response) {
-            if (!response) {
-                // If the url is not in the cache, cache it now.
-                caches.open(CACHE_NAME).then(function(cache) {
-                    console.log("[ServiceWorker] Caching app shell");
-                    return cache.add(e.request.url);
-                });
-            }
-
-            return response || fetch(e.request);
+self.addEventListener("fetch", function(event) {
+    console.log("[ServiceWorker] - fetch", event.request.url);
+    event.respondWith(
+        caches.open("mycache").then(function(cache) {
+            return cache.match(event.request).then(function(response) {
+                return (
+                    response ||
+                    fetch(event.request)
+                        .then(function(response) {
+                            console.log(
+                                "[ServiceWorker] - populating cache",
+                                event.request.url
+                            );
+                            cache.put(event.request, response.clone());
+                            return response;
+                        })
+                        .catch(function(error) {
+                            console.log(
+                                "[ServiceWorker] - There has been a problem with your fetch operation: ",
+                                error.message
+                            );
+                        })
+                );
+            });
         })
     );
 });
